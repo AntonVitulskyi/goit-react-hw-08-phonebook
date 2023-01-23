@@ -1,0 +1,15 @@
+.title {
+  font-size: 30px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 15px;
+  padding: 15px;
+  border-style: groove;
+  width: 300px;
+}
