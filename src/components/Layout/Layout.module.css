@@ -1,0 +1,46 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #86b188;
+  height: 80px;
+}
+
+.NavLink {
+  font-size: 34px;
+  text-decoration: none;
+  margin: 20px 40px;
+  color: black;
+}
+
+.active {
+  color: white;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em yellow;
+}
+
+.logOutBtn {
+  width: 150px;
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 8px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.logOutBtn:hover {
+  opacity: 80%;
+}
+
+
+.welcomeText {
+  margin: 0;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+color: aliceblue;
+}

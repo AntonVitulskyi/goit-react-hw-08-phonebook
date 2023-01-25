@@ -1,31 +1,36 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { Suspense, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import Container from './Container/Container';
-import ContactList from './ContactList/ContactList';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import { fetchContactsOperation } from 'Redux/operations';
-import { useEffect } from 'react';
+import Loader from './Loader/Loader';
+import Layout from './Layout/Layout';
+import LoginPage from 'Pages/LoginPage/LoginPage';
+import ContactsPage from 'Pages/ContactsPage/ContactsPage';
+import RegisterPage from 'Pages/RegisterPage/RegisterPage';
+import { useDispatch } from 'react-redux';
+import { authUserRequest } from 'Redux/register/userSlice';
 
 const App = () => {
-  const filter = useSelector(state => state.filter);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-dispatch(fetchContactsOperation())
-  }, [dispatch])
+    const token = localStorage.getItem('token');
+
+    if (!token) return;
+
+    dispatch(authUserRequest());
+  }, [dispatch]);
 
   return (
-    <>
-      <Container>
-        <ContactForm />
-        <Filter />
-        <ContactList
-          filter={filter}
-        />
-      </Container>
-    </>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 };
 

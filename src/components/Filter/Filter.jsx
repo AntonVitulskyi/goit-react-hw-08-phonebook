@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeFilter } from 'Redux/filterSlice';
+import { changeFilter } from 'Redux/filter/filterSlice';
 
 import styles from '../Filter/Filter.module.css';
 
@@ -15,6 +15,8 @@ export default function Filter() {
     <div className={styles.container}>
       <h2 className={styles.title}>Find contacts by name</h2>
       <input
+      placeholder='Find contacts by name'
+      className={styles.input}
         type="text"
         onChange={onFilterChange}
         value={filter}
