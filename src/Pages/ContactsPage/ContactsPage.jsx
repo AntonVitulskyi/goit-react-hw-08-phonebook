@@ -3,11 +3,8 @@ import Loader from 'components/Loader/Loader';
 import WithAuthRedirect from 'hoc/WithAuthRedirect';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  addContactRequest,
-  deleteContactRequest,
-  getContactsRequest,
-} from 'Redux/contacts/contactSlice';
+import { addContactRequest, deleteContactRequest, getContactsRequest } from 'Redux/contacts/operations';
+
 import {
   selectError,
   selectFilter,
@@ -47,7 +44,6 @@ function ContactsPage() {
       name,
       number,
     };
-    console.log(contacts);
     if (contacts.some(contact => contact.name === formData.name)) {
       return alert(
         `You already have a contact '${formData.name}', type the other one`
@@ -57,6 +53,7 @@ function ContactsPage() {
     setName('');
     setNumber('');
   };
+
   const handleDeleteContact = contactId => {
     dispatch(deleteContactRequest(contactId));
   };
