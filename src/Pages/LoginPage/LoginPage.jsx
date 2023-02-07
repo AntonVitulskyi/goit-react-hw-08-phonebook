@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 
 import ErrorIndicator from 'components/Error/Error';
-import { loginUserRequest } from 'Redux/register/userSlice';
 import Container from 'components/Container/Container';
 
 import styles from './LoginPage.module.css';
+import { loginUserRequest } from 'Redux/register/operations';
 function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();

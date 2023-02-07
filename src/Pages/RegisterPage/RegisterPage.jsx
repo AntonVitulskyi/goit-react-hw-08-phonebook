@@ -4,7 +4,7 @@ import Loader from 'components/Loader/Loader';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { registerUserRequest } from 'Redux/register/userSlice';
+import { registerUserRequest } from 'Redux/register/operations';
 import styles from './RegisterPage.module.css';
 
 function RegisterPage() {

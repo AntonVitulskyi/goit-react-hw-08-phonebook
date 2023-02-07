@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
 
 import styles from './Layout.module.css';
-import { logOutRequest } from 'Redux/register/userSlice';
 import Container from 'components/Container/Container';
+import { logOutRequest } from 'Redux/register/operations';
 
 function Layout() {
   const dispatch = useDispatch();
